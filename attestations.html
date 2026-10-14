@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Attestations Orange Digital Center – Aminata CISSE</title>
+<style>
+:root{--bg:#0d1226;--panel:#131a35;--text:#e8eaf6;--muted:#9aa3c7;--line:#252d52;--accent:#a99bff;--accent2:#7c6cf0;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent);text-underline-offset:3px}a:hover{color:#fff}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;justify-content:space-between;gap:16px;height:60px;align-items:center}
+.brand{font-weight:700;color:var(--text);text-decoration:none}
+h1{font:600 clamp(30px,5vw,44px)/1.1 "Iowan Old Style","Palatino Linotype",Georgia,serif;margin:56px 0 12px}
+.lead{color:var(--muted);margin:0 0 36px;max-width:62ch}
+ul{list-style:none;margin:0 0 64px;padding:0;display:grid;gap:14px}
+li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 22px;display:flex;
+  justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;animation:up .6s both;animation-delay:var(--d,0s);
+  transition:transform .2s,border-color .2s}
+li:hover{transform:translateY(-3px);border-color:var(--accent2)}
+li b{display:block}li span{color:var(--muted);font-size:15px}
+.btn{display:inline-block;padding:9px 18px;border-radius:8px;background:var(--accent2);color:#fff;text-decoration:none;font-weight:600;font-size:15px}
+.btn:hover{background:#6a59e0;color:#fff}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <a class="brand" href="index.html">Aminata CISSE</a>
+  <a href="index.html#certificats">Retour au portfolio</a>
+</div></div>
+<main class="wrap">
+  <h1>Attestations Orange Digital Center</h1>
+  <p class="lead">Programme Tech-Ki, août 2026 : 11 sessions gratuites de formation pratique. Ce sont des attestations de participation.</p>
+  <ul id="liste"></ul>
+</main>
+<script>
+var ATTESTATIONS = [
+  { titre: 'Single Page Application', date: '21 août 2026', fichier: 'documents/orange-single-page-application.pdf' },
+  { titre: 'PHP & MySQL', date: '22 août 2026', fichier: 'documents/orange-php-mysql.pdf' },
+  { titre: 'Full Backend avec PHP', date: '23 août 2026', fichier: 'documents/orange-full-backend-php.pdf' },
+  { titre: 'DevOps GitHub', date: '24 août 2026', fichier: 'documents/orange-devops-github.pdf' },
+  { titre: 'Fondamentaux de la Programmation', date: '26 août 2026', fichier: 'documents/orange-fondamentaux-programmation.pdf' },
+  { titre: 'Linux Essentials : Commandes, Système & Administration', date: '26 août 2026', fichier: 'documents/orange-linux-essentials.pdf' },
+  { titre: 'Cloud Computing : AWS Fondamentaux', date: '26 août 2026', fichier: 'documents/orange-cloud-aws.pdf' },
+  { titre: 'UI/UX Design : Conception d’Interfaces Modernes', date: '27 août 2026', fichier: 'documents/orange-ui-ux-design.pdf' },
+  { titre: 'Développement Frontend avec l’Intelligence Artificielle', date: '27 août 2026', fichier: 'documents/orange-frontend-ia.pdf' },
+  { titre: 'Linux Avancé : ACL, Services & Gestion des Processus', date: '28 août 2026', fichier: 'documents/orange-linux-avance.pdf' },
+  { titre: 'Fondamentaux de la Cybersécurité : Phishing & Ingénierie Sociale & OSINT', date: '29 août 2026', fichier: 'documents/orange-cybersecurite.pdf' }
+];
+var ul = document.getElementById('liste');
+ATTESTATIONS.forEach(function(a, i){
+  var li = document.createElement('li');
+  li.style.setProperty('--d', i * 0.05 + 's');
+  var d = document.createElement('div');
+  var b = document.createElement('b'); b.textContent = a.titre;
+  var s = document.createElement('span'); s.textContent = a.date;
+  d.appendChild(b); d.appendChild(s);
+  var l = document.createElement('a');
+  l.className = 'btn'; l.href = a.fichier; l.target = '_blank'; l.rel = 'noopener';
+  l.textContent = 'Ouvrir l’attestation';
+  li.appendChild(d); li.appendChild(l); ul.appendChild(li);
+});
+</script>
+</body>
+</html>
